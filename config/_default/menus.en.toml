@@ -67,3 +67,16 @@
 #   name = "Categories"
 #   pageRef = "categories"
 #   weight = 20
+
+
+[[main]]
+name = "About"
+pageRef = "about"
+identifier = "Abxs9aqxiF"
+weight = 9_990
+
+[[main]]
+name = "Posts"
+pageRef = "posts"
+identifier = "Abxs9aqxiG"
+weight = 9_999
