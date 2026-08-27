@@ -76,7 +76,7 @@ identifier = "Abxs9aqxiF"
 weight = 9_990
 
 [[main]]
-name = "Posts"
-pageRef = "posts"
+name = "Projects"
+pageRef = "projects"
 identifier = "Abxs9aqxiG"
 weight = 9_999
