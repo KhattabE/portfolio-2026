@@ -34,3 +34,36 @@ Fokus i denne uge var at få projektets grundlæggende backend og databaseforbin
 #### Resultat
 
 Ved slutningen af uge 1 har vi fået den grundlæggende database- og JPA-struktur på plads. `User`-data kan nu håndteres gennem DAO-laget, og projektet er klar til at blive udvidet med nye entities, relationer og funktioner i de kommende uger.
+
+
+### Week 2 – JPA Relations, JPQL & DAO Tests
+
+I uge 2 byggede vi videre på backend-strukturen i vores **Training App** med fokus på JPA relations, JPQL queries og tests af vores DAO-lag.
+
+#### Det har vi arbejdet med
+
+- Oprettet nye entities:
+  - `WorkoutProgram`
+  - `Exercise`
+- Oprettet `MuscleGroup` enum til kategorisering af øvelser
+- Tilføjet JPA relations:
+  - `User` → `WorkoutProgram` med `@ManyToOne`
+  - `WorkoutProgram` → `Exercise` med `@ManyToMany`
+- Holdt relationerne simple og uden unødvendige cascade types
+- Oprettet DAO interfaces og implementations til:
+  - `WorkoutProgram`
+  - `Exercise`
+- Udvidet `UserDAO` med nye query-metoder
+- Implementeret JPQL queries til blandt andet:
+  - Træningsprogrammer efter antal træningsdage
+  - Øvelser efter muskelgruppe
+  - Brugere efter experience level
+  - Brugere efter deres tilknyttede workout program
+- Opsat JUnit tests til DAO-laget
+- Testet CRUD, JPQL queries og relationen mellem `User` og `WorkoutProgram`
+
+#### Resultat
+
+Ved slutningen af uge 2 har projektet fået en mere sammenhængende databasestruktur, hvor brugere kan forbindes til træningsprogrammer, og træningsprogrammer kan indeholde flere øvelser.
+
+Vi har samtidig implementeret JPQL queries til at hente data på forskellige måder og verificeret DAO-funktionaliteten med automatiserede tests.
