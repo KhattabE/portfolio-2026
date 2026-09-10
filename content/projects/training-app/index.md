@@ -67,3 +67,27 @@ I uge 2 byggede vi videre på backend-strukturen i vores **Training App** med fo
 Ved slutningen af uge 2 har projektet fået en mere sammenhængende databasestruktur, hvor brugere kan forbindes til træningsprogrammer, og træningsprogrammer kan indeholde flere øvelser.
 
 Vi har samtidig implementeret JPQL queries til at hente data på forskellige måder og verificeret DAO-funktionaliteten med automatiserede tests.
+
+
+### Week 3 – Data Integration & Gemini API
+
+I uge 3 arbejdede vi med **data integration** og integrerede Gemini API i vores **Training App**. Her begyndte vi på en simpel **AI Coach**, som kan sende spørgsmål til Gemini og modtage svar tilbage.
+
+#### Det har vi arbejdet med
+
+- Oprettet en `AiCoachService` til kommunikationen med Gemini API
+- Brugt Java `HttpClient` til at sende requests til API'et
+- Oprettet DTO'er til request-data
+- Brugt Jackson til at konvertere Java-objekter til JSON
+- Sendt spørgsmål til Gemini gennem en HTTP `POST` request
+- Modtaget JSON-respons fra API'et
+- Brugt Jackson til at parse svaret
+- Hentet selve AI-svaret ud af JSON-strukturen
+- Gemte API-nøglen som en environment variable i stedet for at hardcode den
+- Oprettet en test, der bekræfter, at integrationen virker og returnerer et gyldigt svar
+
+#### Resultat
+
+Ved slutningen af uge 3 har projektet fået en fungerende integration til Gemini API. Training App kan nu sende et spørgsmål til vores AI-service, modtage et svar fra Gemini og returnere selve teksten fra svaret.
+
+Integrationen er testet og fungerer som fundament for, at AI Coach-funktionen kan udvides senere i projektet.
