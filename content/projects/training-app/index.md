@@ -91,3 +91,14 @@ I uge 3 arbejdede vi med **data integration** og integrerede Gemini API i vores 
 Ved slutningen af uge 3 har projektet fået en fungerende integration til Gemini API. Training App kan nu sende et spørgsmål til vores AI-service, modtage et svar fra Gemini og returnere selve teksten fra svaret.
 
 Integrationen er testet og fungerer som fundament for, at AI Coach-funktionen kan udvides senere i projektet.
+
+
+### Week 4 – No New Project Integration
+
+I uge 4 arbejdede vi med nye emner på studiet, men der var ikke noget fra ugens undervisning, som gav mening at integrere direkte i vores **Training App** på nuværende tidspunkt.
+
+Vi valgte derfor ikke at tilføje nye features kun for at have noget nyt i projektet. I stedet holdt vi fokus på, at de funktioner vi tilføjer skal være relevante for appens formål og passe ind i den samlede struktur.
+
+#### Resultat
+
+Der blev ikke tilføjet nye funktioner til Training App i uge 4. Projektet står fortsat med den eksisterende JPA-, DAO-, database- og API-integration, og er klar til at blive udvidet igen, når kommende emner passer naturligt ind i projektet.
