@@ -102,3 +102,68 @@ Vi valgte derfor ikke at tilføje nye features kun for at have noget nyt i proje
 #### Resultat
 
 Der blev ikke tilføjet nye funktioner til Training App i uge 4. Projektet står fortsat med den eksisterende JPA-, DAO-, database- og API-integration, og er klar til at blive udvidet igen, når kommende emner passer naturligt ind i projektet.
+
+
+### Week 6 – REST API, Javalin & Documentation
+
+I uge 6 arbejdede vi med at gøre funktionerne i vores **Training App** tilgængelige gennem et REST API. Vi brugte **Javalin** til at oprette endpoints og koblede dem sammen med vores eksisterende DAO-lag, entities og AI Coach.
+
+#### Det har vi arbejdet med
+
+- Tilføjet Javalin og oprettet `Application` som startpunkt for REST API'et
+- Oprettet controllers og routes til:
+  - Users
+  - Exercises
+  - Workout Programs
+  - AI Coach
+- Implementeret `GET`, `POST`, `PUT` og `DELETE` endpoints til øvelser
+- Tilføjet endpoints til at oprette og hente brugere
+- Oprettet et endpoint hvor brugeren kan sende spørgsmål til vores AI Coach
+- Tilføjet funktionalitet til at generere et træningsprogram ud fra brugerens oplysninger
+- Brugt request- og response-DTO'er, så API'et ikke eksponerer vores entities direkte
+- Tilføjet validering af blandt andet navne, IDs, antal sæt og træningsdage
+- Arbejdet med HTTP statuskoder som `200`, `201`, `204`, `400`, `404` og `405`
+- Tilføjet logging af requests
+- Samlet fejlbeskeder i et fælles JSON-format med `status` og `msg`
+- Oprettet en `requests.http` fil til manuel test af endpoints i IntelliJ
+- Dokumenteret endpoints, JSON-formater og statuskoder i projektets README
+
+#### Resultat
+
+Ved slutningen af uge 6 har Training App fået et fungerende **REST API**, som forbinder HTTP requests med projektets eksisterende backend.
+
+Routes og controllers er opdelt efter ansvar, mens DTO'er styrer hvilke data API'et modtager og returnerer. Vi har samtidig tilføjet validering, logging og ensartet fejlhåndtering.
+
+API'et er nu dokumenteret og klar til, at vi kan bygge videre med automatiserede endpoint-tests i næste del af projektet.
+
+
+### Week 7 – REST Assured, Testcontainers & Integration Tests
+
+I uge 7 arbejdede vi med automatiserede tests af vores **Training App**. Vi byggede videre på vores eksisterende DAO-tests og tilføjede tests af REST API'et med **REST Assured** og **Hamcrest**.
+
+Fokus i denne uge var at teste applikationen med kendte data i en separat testdatabase og sikre, at både gyldige requests og almindelige fejlscenarier bliver håndteret korrekt.
+
+#### Det har vi arbejdet med
+
+- Tilføjet REST Assured til endpoint-tests
+- Brugt Hamcrest til at kontrollere statuskoder og JSON-responses
+- Oprettet en separat `HibernateTestConfig` med PostgreSQL og Testcontainers
+- Ladet DAO implementations modtage en `EntityManagerFactory`, så de kan bruge testdatabasen
+- Oprettet kendte brugere, øvelser og træningsprogrammer før tests
+- Testet CRUD-funktionalitet, JPQL queries og relationer i DAO-laget
+- Tilpasset `Application`, så Javalin kan startes og stoppes under endpoint-tests
+- Testet REST endpoints med både gyldige og ugyldige requests
+- Testet cases hvor data ikke findes
+- Brugt en testversion af AI Coach under endpoint-tests
+- Testet `AiCoachService` med lokale JSON-responses fra en Javalin-server, der efterligner Gemini
+- Tilføjet `WorkoutProgramService`, som validerer AI-data og gemmer øvelser, træningsprogram og brugerrelation i én transaktion
+- Testet rollback, så en fejl under gemning ikke overskriver brugerens eksisterende træningsprogram
+- Opdateret API-dokumentationen i README med nye fejlbeskeder og statuskoder
+
+#### Resultat
+
+Ved slutningen af uge 7 har Training App fået en mere komplet testopsætning, som dækker DAO-laget, REST API'et og håndteringen af AI-responses.
+
+Database-tests kører mod en separat testdatabase med kendte data, og AI-tests bruger lokale mock-responses, så testkørslen ikke er afhængig af Gemini API'et.
+
+Den samlede testkørsel gennemførte **36 tests uden fejl**, hvilket giver os større sikkerhed for, at både database-, API- og service-laget fungerer som forventet.
