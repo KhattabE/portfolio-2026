@@ -80,3 +80,9 @@ name = "Projects"
 pageRef = "projects"
 identifier = "Abxs9aqxiG"
 weight = 9_999
+
+[[main]]
+name = "Exam Portfolio"
+pageRef = "exam-portfolio"
+identifier = "examPortfolio"
+weight = 9_980

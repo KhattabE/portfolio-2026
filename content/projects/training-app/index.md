@@ -167,3 +167,33 @@ Ved slutningen af uge 7 har Training App fået en mere komplet testopsætning, s
 Database-tests kører mod en separat testdatabase med kendte data, og AI-tests bruger lokale mock-responses, så testkørslen ikke er afhængig af Gemini API'et.
 
 Den samlede testkørsel gennemførte **36 tests uden fejl**, hvilket giver os større sikkerhed for, at både database-, API- og service-laget fungerer som forventet.
+
+
+### Week 8 – Deployment, Docker & CI/CD
+
+I uge 8 arbejdede vi med **deployment og DevOps** og fik vores Training App gjort tilgængelig online. Fokus var på at containerize vores backend med Docker, opsætte en CI/CD pipeline og deploye applikationen til en DigitalOcean server.
+
+#### Det har vi arbejdet med
+
+- Oprettet Docker-setup til vores Javalin backend
+- Deployet vores REST API på en Ubuntu Droplet hos DigitalOcean
+- Opsat PostgreSQL på serveren til applikationens database
+- Konfigureret de nødvendige environment variables til production
+- Opsat CI/CD med GitHub Actions
+- Automatiseret build og deployment af nye versioner af backend
+- Arbejdet med Docker images og containers til at køre applikationen
+- Tilknyttet vores eget domæne til serveren
+- Opsat HTTPS/SSL, så API'et kan tilgås sikkert
+- Testet at den deployede API kan tilgås udefra
+
+#### Deployment
+
+Training App API'et er nu tilgængeligt på:
+
+**https://trainingappexam.dk**
+
+#### Resultat
+
+Ved slutningen af uge 8 er vores Training App ikke længere kun et lokalt projekt. Backend, database og Docker-miljø kører nu på DigitalOcean, og API'et kan tilgås gennem vores eget domæne med HTTPS.
+
+CI/CD-pipelinen gør samtidig, at nye ændringer i projektet kan bygges og deployes mere automatisk, hvilket gør det lettere at fortsætte udviklingen frem mod eksamen.
