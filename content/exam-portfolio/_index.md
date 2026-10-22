@@ -27,14 +27,14 @@ Coming soon
 
 | Week | Main Focus |
 |---|---|
-| Week 1 | Project Setup, JPA & CRUD |
-| Week 2 | JPA Relations, JPQL & DAO Tests |
-| Week 3 | Data Integration & Gemini API |
-| Week 4 | No New Project Integration |
-| Week 5 | Concurrency & AI Coach Improvements |
-| Week 6 | REST API, Javalin & Documentation |
-| Week 7 | REST Assured, Testcontainers & Integration Tests |
-| Week 8 | Deployment, Docker & CI/CD |
+| Week 1 | JPA Basics |
+| Week 2 | JPA Relations |
+| Week 3 | Data Integration |
+| Week 4 | Concurrency |
+| Week 5 | REST API Intro |
+| Week 6 | REST & Test |
+| Week 7 | Security |
+| Week 8 | Deployment & DevOps |
 
 ---
 
@@ -125,21 +125,9 @@ Integrationen er testet og fungerer som fundament for, at AI Coach-funktionen ka
 
 ---
 
-## Week 4 – No New Project Integration
+## Week 4 – Concurrency & AI Coach Improvements
 
-I uge 4 arbejdede vi med nye emner på studiet, men der var ikke noget fra ugens undervisning, som gav mening at integrere direkte i vores **Training App** på nuværende tidspunkt.
-
-Vi valgte derfor ikke at tilføje nye features kun for at have noget nyt i projektet. I stedet holdt vi fokus på, at de funktioner vi tilføjer skal være relevante for appens formål og passe ind i den samlede struktur.
-
-### Resultat
-
-Der blev ikke tilføjet nye funktioner til Training App i uge 4. Projektet står fortsat med den eksisterende JPA-, DAO-, database- og API-integration, og er klar til at blive udvidet igen, når kommende emner passer naturligt ind i projektet.
-
----
-
-## Week 5 – Concurrency & AI Coach Improvements
-
-I uge 5 arbejdede vi med **concurrency i Java** og byggede samtidig videre på vores **AI Coach**. Fokus var både på at forstå, hvordan Java kan håndtere flere opgaver samtidig, og på at gøre svarene fra Gemini mere relevante og brugbare i vores Training App.
+I uge 4 arbejdede vi med **concurrency i Java** og byggede samtidig videre på vores **AI Coach**. Fokus var både på at forstå, hvordan Java kan håndtere flere opgaver samtidig, og på at gøre svarene fra Gemini mere relevante og brugbare i vores Training App.
 
 ### Det har vi arbejdet med
 
@@ -152,7 +140,7 @@ I uge 5 arbejdede vi med **concurrency i Java** og byggede samtidig videre på v
 - Bedt AI Coach om at undgå unødvendige titler og introduktioner
 - Tilføjet instruktion om at anbefale professionel sundhedsfaglig hjælp ved spørgsmål
 - Oprettet DTO'er til at håndtere candidates, content og parts i Gemini-responsen
-- Opdateret testen af AiCoachService, så den passer til den forbedrede AI Coach
+- Opdateret testen af `AiCoachService`, så den passer til den forbedrede AI Coach
 
 ### Resultat
 
@@ -162,9 +150,9 @@ Samtidig blev AI Coach forbedret, så svarene fra Gemini nu er kortere, mere fok
 
 ---
 
-## Week 6 – REST API, Javalin & Documentation
+## Week 5 – REST API, Javalin & Documentation
 
-I uge 6 arbejdede vi med at gøre funktionerne i vores **Training App** tilgængelige gennem et REST API. Vi brugte **Javalin** til at oprette endpoints og koblede dem sammen med vores eksisterende DAO-lag, entities og AI Coach.
+I uge 5 arbejdede vi med at gøre funktionerne i vores **Training App** tilgængelige gennem et REST API. Vi brugte **Javalin** til at oprette endpoints og koblede dem sammen med vores eksisterende DAO-lag, entities og AI Coach.
 
 ### Det har vi arbejdet med
 
@@ -188,7 +176,7 @@ I uge 6 arbejdede vi med at gøre funktionerne i vores **Training App** tilgæng
 
 ### Resultat
 
-Ved slutningen af uge 6 har Training App fået et fungerende **REST API**, som forbinder HTTP requests med projektets eksisterende backend.
+Ved slutningen af uge 5 har Training App fået et fungerende **REST API**, som forbinder HTTP requests med projektets eksisterende backend.
 
 Routes og controllers er opdelt efter ansvar, mens DTO'er styrer hvilke data API'et modtager og returnerer. Vi har samtidig tilføjet validering, logging og ensartet fejlhåndtering.
 
@@ -196,9 +184,9 @@ API'et er nu dokumenteret og klar til, at vi kan bygge videre med automatiserede
 
 ---
 
-## Week 7 – REST Assured, Testcontainers & Integration Tests
+## Week 6 – REST Assured, Testcontainers & Integration Tests
 
-I uge 7 arbejdede vi med automatiserede tests af vores **Training App**. Vi byggede videre på vores eksisterende DAO-tests og tilføjede tests af REST API'et med **REST Assured** og **Hamcrest**.
+I uge 6 arbejdede vi med automatiserede tests af vores **Training App**. Vi byggede videre på vores eksisterende DAO-tests og tilføjede tests af REST API'et med **REST Assured** og **Hamcrest**.
 
 Fokus i denne uge var at teste applikationen med kendte data i en separat testdatabase og sikre, at både gyldige requests og almindelige fejlscenarier bliver håndteret korrekt.
 
@@ -221,11 +209,44 @@ Fokus i denne uge var at teste applikationen med kendte data i en separat testda
 
 ### Resultat
 
-Ved slutningen af uge 7 har Training App fået en mere komplet testopsætning, som dækker DAO-laget, REST API'et og håndteringen af AI-responses.
+Ved slutningen af uge 6 har Training App fået en mere komplet testopsætning, som dækker DAO-laget, REST API'et og håndteringen af AI-responses.
 
 Database-tests kører mod en separat testdatabase med kendte data, og AI-tests bruger lokale mock-responses, så testkørslen ikke er afhængig af Gemini API'et.
 
 Den samlede testkørsel gennemførte **36 tests uden fejl**, hvilket giver os større sikkerhed for, at både database-, API- og service-laget fungerer som forventet.
+
+---
+
+## Week 7 – Security, BCrypt & JWT
+
+I uge 7 arbejdede vi med **security** i vores Training App. Fokus var på at beskytte brugerdata og håndtere passwords sikkert med BCrypt samt arbejde videre mod authentication med JSON Web Tokens.
+
+### Det har vi arbejdet med
+
+- Tilføjet et password-felt til vores `User` entity
+- Sørget for, at password ikke bliver inkluderet i `toString()`
+- Tilføjet BCrypt til projektet til password-hashing
+- Oprettet en `PasswordService` til:
+  - Hashing af passwords
+  - Verificering af passwords
+- Tilføjet `getByEmail()` til `UserDAO`
+- Oprettet en `AuthService`
+- Implementeret registreringslogik
+- Kontrolleret om en email allerede eksisterer før registrering
+- Hashet brugerens password før det gemmes i databasen
+- Implementeret login-logik
+- Fundet brugeren ud fra email ved login
+- Verificeret det indtastede password mod det gemte BCrypt-hash
+- Brugt samme fejlbesked ved forkert email og password, så login ikke afslører hvilke emails der findes
+- Arbejdet med JWT og hvordan tokens kan bruges til authentication og beskyttelse af API-endpoints
+
+### Resultat
+
+Ved slutningen af uge 7 har Training App fået fundamentet til et security-lag.
+
+Passwords bliver ikke længere gemt som plain text, men bliver hashed med BCrypt før de gemmes. Vi har samtidig implementeret registrering og login, hvor brugerens password verificeres sikkert mod det gemte hash.
+
+Arbejdet med JWT danner næste del af authentication-laget, så beskyttede endpoints kan kræve et gyldigt token.
 
 ---
 
