@@ -278,3 +278,70 @@ Training App API'et er nu tilgængeligt på:
 Ved slutningen af uge 8 er vores Training App ikke længere kun et lokalt projekt. Backend, database og Docker-miljø kører nu på DigitalOcean, og API'et kan tilgås gennem vores eget domæne med HTTPS.
 
 CI/CD-pipelinen gør samtidig, at nye ændringer i projektet kan bygges og deployes mere automatisk, hvilket gør det lettere at fortsætte udviklingen frem mod eksamen.
+
+-------------------------------------------------
+
+## Frontend Week 1 – Planning & Figma
+
+I uge 1 begyndte vi at planlægge frontenden til vores **Training App**. Fokus var på at få en idé om, hvordan applikationen skulle se ud, hvilke sider og components vi kunne få brug for, og hvordan brugeren senere skulle kunne interagere med appen.
+
+### Det har vi arbejdet med
+
+- Lavet et design af hjemmesiden i Figma
+- Skitseret hvordan Training App skulle se ud visuelt
+- Diskuteret forskellige idéer til layout og funktionalitet
+- Planlagt blandt andet login, oprettelse af bruger og profil
+- Overvejet hvordan brugergrænsefladen senere kan opdeles i mindre React components
+- Snakket om hvilke brugerinteraktioner appen senere skal understøtte
+- Brugt *Thinking in React* som inspiration til at tænke i components og struktur
+
+### Resultat
+
+Ved slutningen af uge 1 havde vi fået lavet et første visuelt design i Figma og dannet os et overblik over, hvordan frontenden til Training App skulle bygges op.
+
+Vi havde samtidig diskuteret de vigtigste idéer og funktioner, så vi havde et bedre grundlag for at begynde implementeringen i React i den følgende uge.
+
+---
+
+## Frontend Week 2 – React, Components & API Integration
+
+I uge 2 begyndte vi at implementere frontenden til vores **Training App** i React. Vi tog udgangspunkt i designet fra Figma og begyndte at opdele brugergrænsefladen i mindre components.
+
+Fokus var både på at bygge den visuelle struktur, gøre components interaktive og koble React-frontenden sammen med vores eksisterende backend.
+
+### Det har vi arbejdet med
+
+- Oprettet en ny React-applikation med Vite
+- Oprettet en `components`-mappe og opdelt frontenden i flere components
+- Oprettet blandt andet:
+  - `Navbar`
+  - `Login`
+  - `Register`
+  - `Profile`
+  - `EditProfile`
+  - `WorkoutProgram`
+  - `AiCoach`
+- Genbrugt designet fra vores tidligere HTML/CSS mockup
+- Brugt props til at sende data mellem components
+- Brugt `useState` til at håndtere state og formularfelter
+- Brugt `useEffect` til at hente brugerdata
+- Tilføjet event handlers til blandt andet login, registrering, profilredigering og logout
+- Brugt conditional rendering til at vise forskellige dele af applikationen afhængigt af brugerens state
+- Koblet React-frontenden sammen med vores deployede REST API
+- Implementeret registrering og login gennem `/auth/register` og `/auth/login`
+- Gemmer JWT-token i `localStorage` efter authentication
+- Henter den aktuelle bruger gennem `/api/users/me`
+- Implementeret mulighed for at opdatere brugerens profil gennem en `PUT` request
+- Tilføjet frontend til generering og visning af workout programs
+- Tilføjet en AI Coach component, som kommunikerer med vores Gemini-baserede backend
+- Tilføjet React-frontenden til samme GitHub repository som backend-projektet
+
+### Resultat
+
+Ved slutningen af uge 2 har Training App fået en fungerende React-frontend, som er koblet direkte sammen med vores eksisterende backend.
+
+Brugeren kan nu oprette en konto, logge ind, få vist sine oplysninger, redigere sin profil og logge ud. Frontenden er samtidig forberedt til at vise workout programs og kommunikere med AI Coach.
+
+Vi har dermed bevæget os fra et statisk design til en interaktiv fullstack-applikation, hvor React kommunikerer med vores Java REST API gennem HTTP requests.
+
+---
